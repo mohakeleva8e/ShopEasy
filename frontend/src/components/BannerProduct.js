@@ -26,11 +26,8 @@ const BannerProduct = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (desktopImages.length - 1 > currentImage) {
-        nextImage();
-      } else {
-        setCurrentImage(0);
-      }
+      if (desktopImages.length - 1 > currentImage) nextImage();
+      else setCurrentImage(0);
     }, 5000);
 
     return () => clearInterval(interval);

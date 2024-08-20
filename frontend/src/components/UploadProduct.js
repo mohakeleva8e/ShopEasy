@@ -107,7 +107,7 @@ const UploadProduct = ({ onClose, fetchData }) => {
           <input
             type="text"
             id="productName"
-            placeholder="enter product name"
+            placeholder="Enter Product Name"
             name="productName"
             value={data.productName}
             onChange={handleOnChange}
@@ -121,7 +121,7 @@ const UploadProduct = ({ onClose, fetchData }) => {
           <input
             type="text"
             id="brandName"
-            placeholder="enter brand name"
+            placeholder="Enter Brand Name"
             value={data.brandName}
             name="brandName"
             onChange={handleOnChange}
@@ -209,7 +209,7 @@ const UploadProduct = ({ onClose, fetchData }) => {
           <input
             type="number"
             id="price"
-            placeholder="enter price"
+            placeholder="Enter Price"
             value={data.price}
             name="price"
             onChange={handleOnChange}
@@ -223,7 +223,7 @@ const UploadProduct = ({ onClose, fetchData }) => {
           <input
             type="number"
             id="sellingPrice"
-            placeholder="enter selling price"
+            placeholder="Enter Selling Price"
             value={data.sellingPrice}
             name="sellingPrice"
             onChange={handleOnChange}
@@ -236,14 +236,14 @@ const UploadProduct = ({ onClose, fetchData }) => {
           </label>
           <textarea
             className="h-28 bg-slate-100 border resize-none p-1"
-            placeholder="enter product description"
+            placeholder="Enter Product Description"
             rows={3}
             onChange={handleOnChange}
             name="description"
             value={data.description}
           ></textarea>
 
-          <button className="px-3 py-2 bg-red-600 text-white mb-10 hover:bg-red-700">
+          <button className="px-3 py-2 bg-red-600 text-white mb-10 hover:bg-red-700 font-bold">
             Upload Product
           </button>
         </form>
