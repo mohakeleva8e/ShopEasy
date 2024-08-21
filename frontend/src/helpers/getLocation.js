@@ -394,10 +394,6 @@ const useGeoLocation = (geoSettings, setGeoSettings) => {
               language = "french";
               break;
 
-            case "DE":
-              language = "german";
-              break;
-
             case "JP":
               language = "japanese";
           }

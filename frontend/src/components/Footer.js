@@ -42,10 +42,6 @@ const Footer = () => {
                     language = "french";
                     break;
 
-                  case "DE":
-                    language = "german";
-                    break;
-
                   case "JP":
                     language = "japanese";
                 }
@@ -58,7 +54,6 @@ const Footer = () => {
               </option>
               <option value="CA">Canada</option>
               <option value="FR">France</option>
-              <option value="DE">Germany</option>
               <option value="IN">India</option>
               <option value="GB">England</option>
               <option value="JP">Japan</option>
@@ -88,7 +83,6 @@ const Footer = () => {
                 English
               </option>
               <option value="french">French</option>
-              <option value="german">German</option>
               <option value="hindi">Hindi</option>
               <option value="japanese">Japanese</option>
             </select>
