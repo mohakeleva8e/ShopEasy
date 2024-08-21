@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
@@ -15,8 +14,10 @@ import useGeoLocation from "./helpers/getLocation";
 function App() {
   const dispatch = useDispatch();
   const [cartProductCount, setCartProductCount] = useState(0);
-  const geoData = useGeoLocation();
-  console.log(geoData, "..........user geo location");
+  const [geoSettings, setGeoSettings] = useState({
+    countryCode: "IN",
+    language: "hindi",
+  });
 
   const fetchUserDetails = async () => {
     const dataResponse = await fetch(SummaryApi.current_user.url, {
@@ -42,6 +43,8 @@ function App() {
     setCartProductCount(dataApi?.data?.count);
   };
 
+  useGeoLocation(setGeoSettings);
+
   useEffect(() => {
     /**user Details */
     fetchUserDetails();
@@ -55,6 +58,8 @@ function App() {
           fetchUserDetails, // user detail fetch
           cartProductCount, // current user add to cart product count,
           fetchUserAddToCart,
+          geoSettings,
+          setGeoSettings,
         }}
       >
         <ToastContainer position="top-center" />

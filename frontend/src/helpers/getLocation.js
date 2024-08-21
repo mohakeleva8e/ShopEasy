@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { reverseGeocodeApi } from "../common";
 import { toast } from "react-toastify";
 
-const useGeoLocation = () => {
-  const [geoData, setGeoData] = useState(null);
-
+const useGeoLocation = (setGeoSettings) => {
   useEffect(() => {
     if ("geolocation" in navigator)
       navigator.geolocation.getCurrentPosition(async function (position) {
@@ -380,14 +378,34 @@ const useGeoLocation = () => {
             request: {},
           };
 
+          let language = "english";
+
+          switch (
+            response.data.features[0].properties.context.country.country_code
+          ) {
+            case "IN":
+              language = "hindi";
+              break;
+
+            case "FR":
+              language = "french";
+              break;
+
+            case "DE":
+              language = "german";
+              break;
+
+            case "JP":
+              language = "japanese";
+          }
+
           if (response.status === 200)
-            setGeoData({
+            setGeoSettings({
               region: response.data.features[0].properties.context.region.name,
-              country:
-                response.data.features[0].properties.context.country.name,
               countryCode:
                 response.data.features[0].properties.context.country
                   .country_code,
+              language,
             });
           else toast.error("Something Went Wrong!");
         } catch (error) {
@@ -397,8 +415,6 @@ const useGeoLocation = () => {
       });
     else console.log("Geolocation is not available in your browser.");
   }, []);
-
-  return geoData;
 };
 
 export default useGeoLocation;
