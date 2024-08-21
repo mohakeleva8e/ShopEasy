@@ -1,3 +1,6 @@
 {
-  "Welcome to React": "Welcome to React and react-i18next"
+  "search product here": "Search Product Here...",
+  "Admin Panel": "Admin Panel",
+  "Logout": "Logout",
+  "Login": "Login"
 }

@@ -43,7 +43,7 @@ function App() {
     setCartProductCount(dataApi?.data?.count);
   };
 
-  useGeoLocation(setGeoSettings);
+  useGeoLocation(geoSettings, setGeoSettings);
 
   useEffect(() => {
     /**user Details */

@@ -2,8 +2,11 @@ import { useEffect } from "react";
 import axios from "axios";
 import { reverseGeocodeApi } from "../common";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
-const useGeoLocation = (setGeoSettings) => {
+const useGeoLocation = (geoSettings, setGeoSettings) => {
+  const { i18n } = useTranslation();
+
   useEffect(() => {
     if ("geolocation" in navigator)
       navigator.geolocation.getCurrentPosition(async function (position) {
@@ -415,6 +418,10 @@ const useGeoLocation = (setGeoSettings) => {
       });
     else console.log("Geolocation is not available in your browser.");
   }, []);
+
+  useEffect(() => {
+    i18n.changeLanguage(geoSettings.language);
+  }, [geoSettings.language]);
 };
 
 export default useGeoLocation;

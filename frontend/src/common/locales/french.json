@@ -1,3 +1,6 @@
 {
-  "Welcome to React": "French text"
+  "search product here": "Rechercher un produit ici...",
+  "Admin Panel": "Panneau d'administration",
+  "Logout": "Déconnexion",
+  "Login": "se connecter"
 }
